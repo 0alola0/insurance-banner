@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;500;600&display=swap");
+      .banner {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        max-width: 630px;
+        border: 1px solid #033934;
+      }
+      .banner_display {
+        display: flex;
+        justify-content: flex-start;
+        gap: 32px;
+        background-color: #eff7eb;
+        padding: 12px 0 12px 12px;
+      }
+      .image_wrapper {
+        background-color: #033934;
+        text-align: center;
+        color: #eff7eb;
+        font-family: Poppins;
+        font-size: 10px;
+        font-weight: 500;
+      }
+      .display_picture {
+        margin: 0;
+        width: 116px;
+        height: 98px;
+        > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .image_text {
+        margin-block: 2px;
+        display: block;
+      }
+      .banner_title {
+        margin-block: 4px 10px;
+        color: #033934;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .banner_selector {
+        max-width: 216px;
+        height: 25px;
+        border-radius: 16px;
+        border: 1px solid #033934;
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .banner_selector button {
+        width: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 16px;
+        transition: all 0.2s ease-in;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 10px;
+        font-weight: 400;
+      }
+
+      .banner_selector .active {
+        background: #033934;
+        color: white;
+      }
+
+      .banner_selector button:not(.active) {
+        color: #033934;
+        background: transparent;
+      }
+      .banner_slider {
+      }
+      .slider_header {
+        margin: 0 0 12px 2px;
+        display: block;
+        color: #033934;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .price_highlight {
+        font-family: Poppins;
+        background-color: #efe3ad;
+        border-bottom: 2px solid #f3b51b;
+        font-style: italic;
+      }
+
+      .banner_cta {
+        background-color: #033934;
+        padding: 12px 5px;
+        text-align: center;
+      }
+      .cta_text {
+        display: block;
+        color: #fff;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 10px;
+        font-weight: 400;
+        margin-bottom: 2px;
+      }
+      .cta_result {
+        display: block;
+        color: #fff;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+      .company_logo {
+        width: 78px;
+        height: 32px;
+        margin: 0 auto;
+        >img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+      }
+      .cta_btn {
+        width: 127px;
+        height: 22px;
+        background: #f3b51b;
+        margin-bottom: 15px;
+        > a {
+          color: #033934;
+          font-family: Poppins;
+          font-size: 10px;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+      .noUi-connects {
+        border-radius: 12px;
+      }
+
+      .noUi-pips-horizontal {
+        height: 9px;
+      }
+      .noUi-target {
+        border-radius: 12px;
+        padding-inline: 10px 13px;
+        background: rgba(3, 57, 52, 0.15);
+        border: none;
+        box-shadow: none;
+      }
+      .noUi-connect {
+        background-color: transparent;
+      }
+      .noUi-pips .noUi-marker {
+        background: rgba(3, 57, 52, 0.2);
+        width: 2px;
+        height: 18px;
+        top: -90%;
+      }
+      .noUi-pips .noUi-marker:first-child {
+        margin-left: 13px;
+      }
+
+      .noUi-pips .noUi-marker:nth-child(5) {
+        margin-left: -13px;
+      }
+      .noUi-pips .noUi-value {
+        display: none;
+      }
+
+      .noUi-handle {
+        width: 28px !important;
+        height: 28px !important;
+        background-color: #033934;
+        border-radius: 30px;
+        flex-shrink: 0;
+        box-shadow: none;
+        border: none;
+      }
+      .noUi-handle::before {
+        display: none;
+      }
+      .noUi-handle::after {
+        background-image: url("img/horseshoe.png");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, -45%);
+        border-radius: 30px;
+        background-color: transparent;
+        width: 28px;
+        height: 28px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="banner">
+      <div class="banner_display">
+        <div class="image_wrapper">
+          <figure class="display_picture">
+            <img src="img/handsome-horse.jpg" alt="" />
+          </figure>
+          <span class="image_text">[Pris på häst]</span>
+        </div>
+        <div class="banner_info">
+          <h5 class="banner_title">Påverka din försäkringskostnad</h5>
+          <div class="banner_selector">
+            <button class="quarter-btn active" onclick="toggleActive(this)">
+              25 % självrisk
+            </button>
+            <button class="half-btn" onclick="toggleActive(this)">
+              50 % självrisk
+            </button>
+          </div>
+          <div class="banner_slider">
+            <span class="slider_header"
+              >Ditt veterinärvårdsbelopp:
+              <strong class="price_highlight">150 000 kr</strong></span
+            >
+            <div id="slider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="banner_cta">
+        <span class="cta_text">Pris från:</span>
+        <strong class="cta_result">
+          <span class="cta_price">xxx</span>kr/mån</strong
+        >
+        <div class="cta_btn"><a href="">Se fördelar ></a></div>
+        <figure class="company_logo">
+          <img src="img/logo.svg" alt="" />
+        </figure>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function toggleActive(btn) {
+      const buttons = document.querySelectorAll(".banner_selector button");
+      buttons.forEach((button) => button.classList.remove("active"));
+
+      btn.classList.add("active");
+    }
+    var connectSlider = document.getElementById("slider");
+    var valuesForSlider = [50, 100, 150];
+
+    noUiSlider.create(connectSlider, {
+      start: 50,
+      connect: "lower",
+      range: {
+        min: 50,
+        max: 150,
+      },
+      step: 50,
+      pips: {
+        mode: "values",
+        values: [50, 100, 150],
+        density: 50,
+      },
+    });
+  </script>
+</html>
