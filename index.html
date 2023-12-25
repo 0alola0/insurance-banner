@@ -154,11 +154,12 @@
         }
       }
       .cta_btn {
-        width: 127px;
-        height: 22px;
         background: #f3b51b;
         margin-bottom: 15px;
         > a {
+          display: block;
+          width: 127px;
+          padding-block: 4px;
           color: #033934;
           font-family: Poppins;
           font-size: 10px;
@@ -202,6 +203,7 @@
         display: none;
       }
       .noUi-handle {
+        cursor: pointer;
         width: 28px !important;
         height: 28px !important;
         background-color: #033934;
@@ -234,7 +236,7 @@
           <figure class="display_picture">
             <img src="img/handsome-horse.jpg" alt="" />
           </figure>
-          <span class="image_text">[Pris på häst]</span>
+          <span class="image_text" id="horse_price">[Pris på häst]</span>
         </div>
         <div class="banner_info">
           <h5 class="banner_title">Påverka din försäkringskostnad</h5>
@@ -259,7 +261,7 @@
       <div class="banner_cta">
         <span class="cta_text">Pris från:</span>
         <strong class="cta_result"><span class="cta_price" id="final_price">xxx</span>kr/mån</strong>
-        <div class="cta_btn"><a href="">Se fördelar ></a></div>
+        <div class="cta_btn"><a href="" target="_blank">Se fördelar ></a></div>
         <figure class="company_logo">
           <img src="img/logo.svg" alt="" />
         </figure>
@@ -313,6 +315,7 @@
     //temporary price
     let price = 45001;
     let selectorValue = 25;
+    document.getElementById("horse_price").innerHTML = price + " kr";
     let size = price <= 45000 ? "small" : price <= 90000 ? "medium" : "large";
     const calculate = () => {
       document.getElementById("final_price").innerHTML =
