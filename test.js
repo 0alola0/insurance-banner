@@ -260,13 +260,11 @@ bannerContainer.innerHTML = `
 `;
 // Create script element for head
 const scriptElement = document.createElement("script");
-scriptElement.src =
-  "https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js";
+scriptElement.src = "./scripts/nouislider.min.js";
 
 const linkElement = document.createElement("link");
 linkElement.rel = "stylesheet";
-linkElement.href =
-  "https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css";
+linkElement.href = "./scripts/nouislider.min.css";
 
 // Append elements to body
 document.addEventListener("DOMContentLoaded", function () {
